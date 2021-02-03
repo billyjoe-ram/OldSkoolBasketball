@@ -1,0 +1,7 @@
+{
+  "name": "new-jersey",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
