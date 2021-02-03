@@ -1,0 +1,97 @@
+<!-- O ion-content manterá todo o conteúdo da view no ionic -->
+
+<!-- Adicione a class "swiper-no-swiping" ao ion-content caso queira bloquear o gesto e mudar a tela apenas pelo botão -->
+<ion-content>
+
+  <!-- esta div mantém os segmentos de seleção para login ou cadastro -->
+
+  <!-- o property binding para o hidden funcionará em compilações mobile para não afetar totalmente os elementos da tela assim que o teclado for aberto pelo celular -->
+  <div class="container top" [hidden]="keyboard.isVisible">
+    <!-- logo da loja -->
+    <img src="/assets/thelogo.png" alt="Logo">
+    
+    <!-- esse event binding vai executar a função que altera o slide baseado no valor do segmento selecionado -->
+    <ion-segment value="login" (ionChange)="segmentChanged($event)">
+      <!-- mudar para fazer login -->
+      <ion-segment-button value="login">
+        <ion-label>Login</ion-label>
+      </ion-segment-button>
+
+      <!-- mudar para fazer cadastro -->
+      <ion-segment-button value="register">
+        <ion-label>Cadastro</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </div>
+
+  <!-- este ion-slides mantém efetivamente os campos para login ou cadastro -->
+  <ion-slides>
+    <!-- ion-slide para fazer login -->
+    <ion-slide>
+      <div class="slide-inner ion-padding">
+        <span>Login</span>
+        <!-- ngModel faz um two-way-binding para o objeto -->
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" placeholder="Seu e-mail"></ion-input>
+          <!-- [(ngModel)]="userLogin.email" -->
+        </ion-item>
+
+        <!-- ngModel faz um two-way-binding para o objeto -->
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="password" placeholder="Sua senha"></ion-input>
+          <!-- [(ngModel)]="userLogin.password" -->
+        </ion-item>
+
+        <ion-button (click)="login()" expand="block" color="light" class="ion-margin-top">
+          Acessar conta
+        </ion-button>
+      </div>
+    </ion-slide>
+    <!-- ion-slide para fazer cadastro -->
+    <ion-slide>
+      <div class="slide-inner ion-padding">
+        <span>Cadastro</span>
+
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="text" placeholder="Nome"></ion-input>
+        </ion-item>
+
+        <!-- ngModel faz um two-way-binding para o objeto -->
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" placeholder="Seu email"></ion-input>
+          <!-- [(ngModel)]="userRegister.email" -->
+        </ion-item>
+
+        <!-- ngModel faz um two-way-binding para o objeto -->
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="password" placeholder="Sua senha"></ion-input>
+          <!-- [(ngModel)]="userRegister.password" -->
+        </ion-item>
+
+        <!-- ngModel faz um two-way-binding para o objeto -->
+        <!-- Alteração no projeto original - Adicionando um campo a mais de senha para verificação -->
+        <!-- <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="password" placeholder="Repita a senha" [(ngModel)]="userRegister.password"></ion-input>
+        </ion-item> -->
+
+        <ion-button (click)="register()" expand="block" color="light" class="ion-margin-top">
+          Cadastrar conta
+        </ion-button>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+  <!-- esta div mantém os elementos visuais secundários -->
+
+  <!-- o property binding para o hidden funcionará em compilações mobile para não afetar totalmente os elementos da tela assim que o teclado for aberto pelo celular -->
+  <div class="content" [hidden]="keyboard.isVisible">
+    <div class="logomark"></div>
+
+    <div class="container bottom ion-text-center">
+      <span>A sua loja preferida de regatas de basquete!</span>
+    </div>
+  </div>
+  
+</ion-content>
