@@ -6,11 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { NativeKeyboard } from '@ionic-native/native-keyboard/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,11 +20,11 @@ import { environment } from 'src/environments/environment';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuth
+    AngularFireAuthModule
   ],
   providers: [    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Keyboard    
+    NativeKeyboard    
   ],
   bootstrap: [AppComponent],
 })

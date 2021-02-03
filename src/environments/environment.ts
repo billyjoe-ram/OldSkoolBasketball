@@ -6,8 +6,7 @@ export const environment = {
   production: false,
   // variável de configuração para o firebase
   firebase: {
-    // adicione aqui sua configuração do firebase
-    
+    // adicione aqui sua configuração do firebase    
   }
 };
 

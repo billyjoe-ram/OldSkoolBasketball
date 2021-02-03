@@ -52,7 +52,7 @@
         <span>Cadastro</span>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="text" placeholder="Nome"></ion-input>
+          <ion-input type="text" placeholder="Nome" [(ngModel)]="userName"></ion-input>
         </ion-item>
 
         <!-- ngModel faz um two-way-binding para o objeto -->
@@ -82,7 +82,7 @@
   <!-- esta div mantém os elementos visuais secundários -->
 
   <!-- o property binding para o hidden funcionará em compilações mobile para não afetar totalmente os elementos da tela assim que o teclado for aberto pelo celular -->
-  <div class="content" [hidden]="keyboard.isVisible">
+  <div class="content" [hidden]="keyboard.showKeyboard">
     <div class="logomark"></div>
 
     <div class="container bottom ion-text-center">
