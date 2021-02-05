@@ -21,6 +21,18 @@ const routes: Routes = [
     // Impedindo que o usuário acesse essa página caso ele esteja logado
     canActivate: [LoginGuard]
   },
+  {
+    path: 'details',
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule),
+    // Impedindo que o usuário acesse outras páginas caso ele não esteja logado
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'details/:id',
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule),
+    // Impedindo que o usuário acesse outras páginas caso ele não esteja logado
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

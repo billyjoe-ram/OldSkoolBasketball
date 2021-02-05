@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   // Método para sair da conta
-  public logout(user: User) {
+  public logout() {
     return this.ngFireAuth.signOut();
   }
 

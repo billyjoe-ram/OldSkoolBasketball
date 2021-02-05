@@ -128,7 +128,7 @@ export class LoginPage implements OnInit {
   }
 
   // apresentar o loading
-  async presentLoading() {
+  private async presentLoading() {
     this.loading = await this.loadCtrl.create({
       cssClass: 'olsk-loading',
       message: 'Por favor, aguarde'
@@ -138,7 +138,7 @@ export class LoginPage implements OnInit {
   }
 
   // apresentar o toast com informações ao usuário
-  async presentToast(message: string) {
+  private async presentToast(message: string) {
     this.toast = await this.toastCtrl.create({
       message,
       duration: 2000
